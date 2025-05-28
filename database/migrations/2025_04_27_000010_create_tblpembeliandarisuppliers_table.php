@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tblpembeliandarisuppliers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user')->constrained('users')->onDelete('cascade')->nullable();
+            
             $table->foreignId('id_barang')->constrained('tblbarangs')->onDelete('cascade');
             $table->foreignId('id_supplier')->constrained('tblsuppliers')->onDelete('cascade');
             $table->string('no_faktur');

@@ -48,8 +48,5 @@ class User extends Authenticatable
         ];
     }
     
-    public function pembeliandarisuppliers()
-    {
-        return $this->hasMany(tblpembeliandarisupplier::class, 'id_user');
-    }
+    
 }

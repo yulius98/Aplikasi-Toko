@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('tbltransaksis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
             $table->foreignId('id_customer')->constrained('tblcustomers')->onDelete('cascade');
             $table->foreignId('id_barang')->constrained('tblbarangs')->onDelete('cascade');
             $table->integer('jumlah_produk');

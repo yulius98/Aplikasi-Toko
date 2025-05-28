@@ -64,14 +64,21 @@ class Barang extends Component
         
 
         // Simpan data ke database
-        tblbarang::create([
-            
+        $data = [
             'nama_barang' => $this->nama_barang,
             'id_kategori' => $this->id_kategori,
-            'keterangan' => $this->keterangan,
-            'gambar' => $this->gambar->store('barang','public'), // Simpan gambar ke folder 'images/barang'
-            
-        ]);
+            'keterangan'  => $this->keterangan,
+        ];
+
+        // Cek apakah ada gambar yang diupload
+        if ($this->gambar != null) {
+            $data['gambar'] = $this->gambar->store('barang', 'public');
+        } else {
+            $data['gambar'] = null; // atau bisa dihapus jika tidak ingin menyimpan key 'gambar' sama sekali
+        }
+
+        // Simpan ke database
+        tblbarang::create($data);
         session()->flash('message', 'Data Barang berhasil disimpan.');
         $this->clear();
         // Initialization code can go here

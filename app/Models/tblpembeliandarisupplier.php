@@ -29,10 +29,7 @@ class tblpembeliandarisupplier extends Model
     {
         return $this->belongsTo(tblbarang::class,'id_barang');
     }
-    public function users()
-    {
-        return $this->belongsTo(User::class);
-    }
+   
 
     public function kategoris()
     {
