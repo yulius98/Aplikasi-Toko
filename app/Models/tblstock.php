@@ -17,7 +17,8 @@ class tblstock extends Model
         'harga_jual',
         'nama_barang',
         'jumlah_produk_beli',
-        'jumlah_produk_jual'
+        'jumlah_produk_jual',
+        'status'
     ];
     protected $dates = ['deleted_at'];
 

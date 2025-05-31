@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\tblbarang;
+use App\Models\tbldisplay_barang;
 use App\Models\tblpembeliandarisupplier;
 use App\Models\tblsupplier;
 use App\Models\tblstock;
@@ -86,19 +87,57 @@ class Pbs extends Component
         $dtPBS = tblpembeliandarisupplier::latest()->first();
         $PBS_id = $dtPBS->id;
         
+        //Cek apakah barang sudah ada di stock
+        $stock = tblstock::where('nama_barang', $this->nama_barang)
+            ->first();
+           
+        if ($stock != null) {
+            //Jika nama barang sudah ada
+            tblstock::create([
+                'id_barang' => $this->id_barang,
+                'id_PBS' => $PBS_id,
+                'nama_barang' => $this->nama_barang,
+                'harga_jual' => $this->harga_jual,
+                'jumlah_produk_beli' => $this->jumlah,
+                'jumlah_produk_jual' => 0,
+                'status' => 'hold',
+            ]);
+        }
+        else //Jika belum ada, buat data baru di stock 
+        {
+            tblstock::create([
+                'id_barang' => $this->id_barang,
+                'id_PBS' => $PBS_id,
+                'nama_barang' => $this->nama_barang,
+                'harga_jual' => $this->harga_jual,
+                'jumlah_produk_beli' => $this->jumlah,
+                'jumlah_produk_jual' => 0,
+                'status' => 'tersedia',
+            ]);
+            $dtbarang = tblbarang::find($this->id_barang)
+                        ->first();
+            
+            $dtkategori = tblkategori::find($dtbarang->id_kategori)
+                        ->first();
+            
+            //add data display barang
+            tbldisplay_barang::create([
+                'id_barang' => $this->id_barang,
+                'nama_barang' => $this->nama_barang,
+                'id_kategori' => $this->id_barang,
+                'nama_kategori' => $dtkategori->nama_kategori,
+                'keterangan' => $dtbarang->keterangan,
+                'gambar' => $dtbarang->gambar,
+                'harga_jual' => $this->harga_jual,
+                'sisa_stock' => $this->jumlah,
+            ]);
+        }
 
-        //Simpan data ke table stock
-        tblstock::create([
-            'id_barang' => $this->id_barang,
-            'id_PBS' => $PBS_id,
-            'nama_barang' => $this->nama_barang,
-            'harga_jual' => $this->harga_jual,
-            'jumlah_produk_beli' => $this->jumlah,
-            'jumlah_produk_jual' => 0,
-        ]);
-
-        session()->flash('message', "Data Pembelian berhasil disimpan.");
+        session()->flash('message', "Data Pembelian berhasil diupdate.");
         $this->clear();
+        return;
+        
+        
     }
 
     public function edit($id)

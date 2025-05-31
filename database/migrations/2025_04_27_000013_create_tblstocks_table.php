@@ -19,7 +19,7 @@ return new class extends Migration
             $table->decimal('harga_jual', 50, 2)->comment('Harga jual per unit');
             $table->integer('jumlah_produk_beli');
             $table->integer('jumlah_produk_jual');
-            $table->enum('status',['tersedia','habis'])->default('tersedia')->comment('Status stok: tersedia, habis');
+            $table->enum('status',['tersedia','habis','hold'])->default('tersedia')->comment('Status stok: tersedia, habis');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -21,4 +21,8 @@ class tblkategori extends Model
         return $this->hasMany(tblbarang::class);
     }
     
+    public function displayBarangs()
+    {
+        return $this->hasMany(tbldisplay_barang::class);
+    }
 }

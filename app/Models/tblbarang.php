@@ -39,5 +39,9 @@ class tblbarang extends Model
         return $this->hasMany(tblstock::class, 'id_barang');
     }
     
+    public function displayBarangs(): HasMany
+    {
+        return $this->hasMany(tbldisplay_barang::class, 'id_barang');
+    }
 
 }

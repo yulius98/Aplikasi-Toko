@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('tbldisplay_barangs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_barang')->constrained('tblbarangs')->onDelete('cascade');
+            $table->string('nama_barang');
+            $table->foreignId('id_kategori')->constrained('tblkategoris')->onDelete('cascade');
+            $table->string('nama_kategori');
+            $table->text('keterangan')->nullable();
+            $table->string('gambar')->nullable();
+            $table->decimal('harga_jual', 50, 2)->comment('Harga jual per unit');
+            $table->integer('sisa_stock')->default(0)->comment('Jumlah Stock');
             $table->timestamps();
         });
     }

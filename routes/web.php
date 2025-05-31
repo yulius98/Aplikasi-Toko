@@ -20,3 +20,7 @@ route::get('/dashboard_barang', function () {
 route::get('/dashboard_pbs', function () {
     return view('accounting.dashboard_pbs');
 });
+
+Route::get('/dashboard_cashier', function () {
+    return view('dashboard_cashier');
+});
