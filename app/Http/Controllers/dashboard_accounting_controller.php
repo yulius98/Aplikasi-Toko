@@ -23,7 +23,7 @@ class dashboard_accounting_controller extends Controller
              
  
 
-        return view('dashboard_accounting', ['dtjmlbarangkategori' => $dtjmlbarangkategori]);
+        return view('accounting.dashboard_accounting', ['dtjmlbarangkategori' => $dtjmlbarangkategori]);
     }
 
     

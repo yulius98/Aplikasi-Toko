@@ -21,53 +21,53 @@
         <div class="my-3 p-3 bg-body rounded shadow-sm">
             
             <form>
-                <div class="container">
-                    <div class="row g-3">
-                        <!-- Kolom Pertama -->
-                        <div class="col-12 col-md-6">
-                            <div class="mb-3">
-                                <label for="nama_supplier" class="form-label">Nama*</label>
-                                <input type="text" class="form-control" id="nama_supplier" wire:model="nama_supplier">
+                <div class="row">
+                    <!-- Kolom Pertama -->
+                    <div class="col-12 col-md-6 mb-3">
+                        <div class="card p-3 shadow-sm rounded-3">
+                            <h5 class="mb-3">Informasi Kontak</h5>
+                            <div class="mb-3 row">
+                                <label for="nama_customer" class="col-12 col-sm-3 col-form-label text-sm-end">Nama*</label>
+                                <div class="col-12 col-sm-9">
+                                    <input type="text" class="form-control" id="nama_customer" wire:model="nama_customer">
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email*</label>
-                                <input type="email" class="form-control" id="email" wire:model="email">
+                            <div class="mb-3 row">
+                                <label for="email" class="col-12 col-sm-3 col-form-label text-sm-end">Email*</label>
+                                <div class="col-12 col-sm-9">
+                                    <input type="email" class="form-control" id="email" wire:model="email">
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="alamat" class="form-label">Alamat*</label>
-                                <input type="text" class="form-control" id="alamat" wire:model="alamat">
-                            </div>
-                            <div class="mb-3">
-                                <label for="kota" class="form-label">Kota</label>
-                                <input type="text" class="form-control" id="kota" wire:model="kota">
-                            </div>
-                            <div class="mb-3">
-                                <label for="kodepos" class="form-label">Kodepos</label>
-                                <input type="text" class="form-control" id="kodepos" wire:model="kodepos">
-                            </div>
-                            <div class="mb-3">
-                                <label for="telepon" class="form-label">Telepon*</label>
-                                <input type="text" class="form-control" id="telepon" wire:model="telepon">
+                            <div class="mb-3 row">
+                                <label for="telepon" class="col-12 col-sm-3 col-form-label text-sm-end">Telepon*</label>
+                                <div class="col-12 col-sm-9">
+                                    <input type="text" class="form-control" id="telepon" wire:model="telepon">
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Kolom Kedua -->
-                        <div class="col-12 col-md-6">
-                            <div class="mb-3">
-                                <label for="bank" class="form-label">Bank</label>
-                                <input type="text" class="form-control" id="bank" wire:model="bank">
+                    <!-- Kolom Kedua -->
+                    <div class="col-12 col-md-6 mb-3">
+                        <div class="card p-3 shadow-sm rounded-3">
+                            <h5 class="mb-3">Alamat Customer</h5>
+                            <div class="mb-3 row">
+                                <label for="alamat" class="col-12 col-sm-3 col-form-label text-sm-end">Alamat*</label>
+                                <div class="col-12 col-sm-9">
+                                    <input type="text" class="form-control" id="alamat" wire:model="alamat">
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="norek" class="form-label">No. Rekening</label>
-                                <input type="text" class="form-control" id="norek" wire:model="norek">
+                            <div class="mb-3 row">
+                                <label for="kota" class="col-12 col-sm-3 col-form-label text-sm-end">Kota</label>
+                                <div class="col-12 col-sm-9">
+                                    <input type="text" class="form-control" id="kota" wire:model="kota">
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="namarek" class="form-label">Nama Rekening</label>
-                                <input type="text" class="form-control" id="namarek" wire:model="atasnama">
-                            </div>
-                            <div class="mb-3">
-                                <label for="npwp" class="form-label">NPWP</label>
-                                <input type="text" class="form-control" id="npwp" wire:model="npwp">
+                            <div class="mb-3 row">
+                                <label for="kodepos" class="col-12 col-sm-3 col-form-label text-sm-end">Kodepos</label>
+                                <div class="col-12 col-sm-9">
+                                    <input type="text" class="form-control" id="kodepos" wire:model="kodepos">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -94,30 +94,34 @@
         <!-- START DATA -->
         
         <div class="my-3 p-3 bg-body rounded shadow-sm">
-            <h4 class="font-medium">Data Supplier</h4>
+            <h4 class="font-medium">Data Customer</h4>
             <div class="pb-3 pt-3">
                 <input type="text" class="form-control mb-3 w-25" placeholder="Search..." wire:model.live="cari">
             </div>
-            {{ $dtsupplier->links() }}
+            {{ $dtcustomer->links() }}
             <table class="table table-striped table-sortable ">
                 <thead>
                     <tr>
                         <th class="col-md-1">No</th>
-                        <th class="col-md-4 sort" @if ($sortcolom == 'nama_supplier') {{ $sortdirection }} @endif wire:click="sort('nama_supplier')">Nama</th>
+                        <th class="col-md-4 sort" @if ($sortcolom == 'nama_customer') {{ $sortdirection }} @endif wire:click="sort('nama_supplier')">Nama</th>
                         <th class="col-md-3 sort" @if ($sortcolom == 'email') {{ $sortdirection }} @endif wire:click="sort('email')" >Email</th>
+                        <th class="col-md-2">Telepon</th>
                         <th class="col-md-2 sort" @if ($sortcolom == 'alamat') {{ $sortdirection }} @endif wire:click="sort('alamat')">Alamat</th>
                         <th class="col-md-2 sort" @if ($sortcolom == 'kota') {{ $sortdirection }} @endif wire:click="sort('kota')">Kota</th>
+                        <th class="col-md-2">Kodepos</th>
                         <th class="col-md-2">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($dtsupplier as $key => $value)
+                    @foreach ($dtcustomer as $key => $value)
                     <tr>
-                        <td>{{ $dtsupplier->firstitem() + $key }}</td>
-                        <td>{{ $value->nama_supplier  }}</td>
+                        <td>{{ $dtcustomer->firstitem() + $key }}</td>
+                        <td>{{ $value->nama_customer  }}</td>
                         <td>{{ $value->email }}</td>
+                        <td>{{ $value->telepon }}</td>
                         <td>{{ $value->alamat }}</td>
                         <td>{{ $value->kota }}</td>
+                        <td>{{ $value->kodepos }}</td>
                         <td>
                             <div class="d-flex gap-1">
                                 <a wire:click="show_detail({{ $value->id }})" class="btn btn-warning btn-sm">Detail</a>
@@ -129,7 +133,7 @@
                     @endforeach
                 </tbody>
             </table>
-            {{ $dtsupplier->links() }}
+            {{ $dtcustomer->links() }}
         </div>
         <!-- AKHIR DATA -->
         <div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -150,4 +154,5 @@
             </div>
         </div>
 </div>
+
 

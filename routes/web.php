@@ -11,6 +11,10 @@ Route::get('/dashboard_supplier', function () {
     return view('accounting.dashboard_supplier');
 });
 
+Route::get('/dashboard_customer', function () {
+    return view('accounting.dashboard_customer');
+});
+
 Route::get('/dashboard_barang', function () {
     return view('accounting.dashboard_barang');
 });

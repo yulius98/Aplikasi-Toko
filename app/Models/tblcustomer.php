@@ -13,7 +13,7 @@ class tblcustomer extends Model
     protected $table = 'tblcustomers';
 
     protected $fillable = [
-        'nama',
+        'nama_customer',
         'alamat',
         'telepon',
         'email',

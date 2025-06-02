@@ -31,6 +31,9 @@
                     <a class="nav-link collapsed" href="/dashboard_supplier" >
                         Data Supplier
                     </a>
+                    <a class="nav-link collapsed" href="/dashboard_customer" >
+                        Data Customer
+                    </a>
                     
                 </nav>
             </div>

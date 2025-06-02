@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreignId('id_barang')->constrained('tblbarangs')->onDelete('cascade');
             $table->integer('jumlah_produk');
             $table->decimal('total_harga', 10, 2);
+            $table->enum('status_transaksi', ['pending', 'completed', 'cancelled'])->default('pending');
+            $table->enum('metode_pembayaran',['tunai','non-tunai'])->default('tunai') ->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
