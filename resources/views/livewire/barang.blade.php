@@ -144,6 +144,7 @@
                 </thead>
                 <tbody>
                     
+                    
                     @foreach ($dtbarang as $key => $value)
                     <tr>
                         <td>{{ $dtbarang->firstItem() + $key }}</td>

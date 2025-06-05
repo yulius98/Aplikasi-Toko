@@ -1,63 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Dashboard Cashier</title>
-	
-	<link href="css/cashier.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard Cashier</title>
+  <link rel="stylesheet" href="css/global_cashier.css" />
+  <link rel="stylesheet" href="css/cashier.css" />
 </head>
 <body>
-	<header>
-		<div class="search-box">
-			<input type="text" placeholder="Search..." />
-		</div>
-		<button class="logout-button">Logout</button>
-	</header>
-	<div class="container">
-		<div class="sidebar">
-			<div class="section-title">BARANG</div>
-			<!-- Sidebar content can be added here -->
-		</div>
-		<div class="main-content">
-			<div class="section-title">Barang yang di beli</div>
-			<div class="items-list">
-				<table>
-					<thead>
-						<tr>
-							<th>Nama Barang</th>
-							<th>Jumlah</th>
-							<th>Harga</th>
-							<th>Total</th>
-						</tr>
-					</thead>
-					<tbody>
-						<!-- Example row, replace with dynamic content -->
-						<tr>
-							<td>Contoh Barang 1</td>
-							<td>2</td>
-							<td>Rp 10.000</td>
-							<td>Rp 20.000</td>
-						</tr>
-						<tr>
-							<td>Contoh Barang 2</td>
-							<td>1</td>
-							<td>Rp 15.000</td>
-							<td>Rp 15.000</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="summary">
-				<div>Total Harga<br />Rp 35.000</div>
-				<div>Pembulatan<br />Rp 0</div>
-				<div>Total yang dibayar<br />Rp 35.000</div>
-			</div>
-			<div class="actions">
-				<button class="pay-btn">Bayar</button>
-				<button class="cancel-btn">Batal</button>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <header class="header">
+      <div class="search-bar">
+        <input type="text" placeholder="Search" aria-label="Search" />
+      </div>
+      <div class="logout">
+        <button>Logout</button>
+      </div>
+    </header>
+    <main class="main-content">
+      <section class="items-section">
+        <h2>BARANG</h2>
+        
+        <!-- Content for items can be added here -->
+      </section>
+      <section class="payment-section">
+        <h2>Barang yang di beli</h2>
+        <hr />
+        <div class="payment-details">
+          <div class="detail-row">
+            <span>Total Harga</span>
+            <span class="value">Rp 0</span>
+          </div>
+          <div class="detail-row">
+            <span>Pembulatan</span>
+            <span class="value">Rp 0</span>
+          </div>
+          <div class="detail-row total">
+            <span>Total yang dibayar</span>
+            <span class="value">Rp 0</span>
+          </div>
+        </div>
+        <div class="payment-actions">
+          <button class="btn pay-btn">Bayar</button>
+          <button class="btn cancel-btn">Batal</button>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
