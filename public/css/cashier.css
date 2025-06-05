@@ -1,0 +1,131 @@
+body {
+	font-family: 'Inter', sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f8f9fa;
+	color: #333;
+}
+header {
+	background-color: #007bff;
+	color: white;
+	padding: 15px 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+header .search-box input[type="text"] {
+	padding: 8px 12px;
+	border-radius: 4px;
+	border: none;
+	width: 200px;
+}
+header .logout-button {
+	background-color: #dc3545;
+	color: white;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-weight: 600;
+	transition: background-color 0.3s ease;
+}
+header .logout-button:hover {
+	background-color: #c82333;
+}
+.container {
+	display: flex;
+	padding: 20px 30px;
+	gap: 20px;
+}
+.sidebar {
+	flex: 1;
+	background-color: white;
+	border-radius: 8px;
+	padding: 20px;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+	min-width: 200px;
+}
+.main-content {
+	flex: 3;
+	background-color: white;
+	border-radius: 8px;
+	padding: 20px;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.section-title {
+	font-size: 1.25rem;
+	font-weight: 700;
+	margin-bottom: 10px;
+	border-bottom: 2px solid #007bff;
+	padding-bottom: 5px;
+	color: #007bff;
+}
+.items-list {
+	margin-top: 15px;
+	border: 1px solid #dee2e6;
+	border-radius: 6px;
+	max-height: 400px;
+	overflow-y: auto;
+}
+.items-list table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.items-list th, .items-list td {
+	padding: 10px 12px;
+	border-bottom: 1px solid #dee2e6;
+	text-align: left;
+}
+.items-list th {
+	background-color: #e9ecef;
+}
+.summary {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	max-width: 400px;
+}
+.summary div {
+	background-color: #f1f3f5;
+	padding: 15px 20px;
+	border-radius: 6px;
+	text-align: center;
+	flex: 1;
+	margin-right: 15px;
+	font-weight: 600;
+	color: #495057;
+}
+.summary div:last-child {
+	margin-right: 0;
+	background-color: #007bff;
+	color: white;
+}
+.actions {
+	margin-top: 30px;
+	display: flex;
+	gap: 20px;
+}
+.actions button {
+	flex: 1;
+	padding: 12px 0;
+	font-size: 1rem;
+	font-weight: 700;
+	border-radius: 6px;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+.actions .pay-btn {
+	background-color: #28a745;
+	color: white;
+}
+.actions .pay-btn:hover {
+	background-color: #218838;
+}
+.actions .cancel-btn {
+	background-color: #dc3545;
+	color: white;
+}
+.actions .cancel-btn:hover {
+	background-color: #c82333;
+}

@@ -24,5 +24,5 @@ Route::get('/dashboard_pbs', function () {
 });
 
 Route::get('/dashboard_cashier', function () {
-    return view('dashboard_cashier');
+    return view('cashier.dashboard_cashier');
 });
