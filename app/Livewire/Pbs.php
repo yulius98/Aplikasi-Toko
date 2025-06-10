@@ -87,6 +87,12 @@ class Pbs extends Component
         $dtPBS = tblpembeliandarisupplier::latest()->first();
         $PBS_id = $dtPBS->id;
         
+        $dtbarang = tblbarang::where('nama_barang','=',$this->nama_barang)
+                        ->first();
+        //dd($dtbarang->id_kategori);    
+        $dtkategori = tblkategori::where('id', '=', $dtbarang->id_kategori)
+                        ->first();
+
         //Cek apakah barang sudah ada di stock
         $stock = tblstock::where('nama_barang', $this->nama_barang)
             ->first();
@@ -114,20 +120,25 @@ class Pbs extends Component
                 'jumlah_produk_jual' => 0,
                 'status' => 'tersedia',
             ]);
-            $dtbarang = tblbarang::find($this->id_barang)
-                        ->first();
             
-            $dtkategori = tblkategori::find($dtbarang->id_kategori)
-                        ->first();
             
             //add data display barang
+            $gambar = $dtbarang->gambar;
+            $pos = strpos($gambar, "barang/");
+            if ($pos !== false) {
+                $gambar = substr($gambar, $pos);
+            }
+            else {
+                $gambar = null;
+            }
+            //dd($gambar);
             tbldisplay_barang::create([
                 'id_barang' => $this->id_barang,
                 'nama_barang' => $this->nama_barang,
-                'id_kategori' => $this->id_barang,
+                'id_kategori' => $dtbarang->id_kategori,
                 'nama_kategori' => $dtkategori->nama_kategori,
                 'keterangan' => $dtbarang->keterangan,
-                'gambar' => $dtbarang->gambar,
+                'gambar' => $gambar,
                 'harga_jual' => $this->harga_jual,
                 'sisa_stock' => $this->jumlah,
             ]);

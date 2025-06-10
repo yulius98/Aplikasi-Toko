@@ -130,7 +130,7 @@
             <div class="pb-3 pt-3">
                 <input type="text" class="form-control mb-3 w-25" placeholder="Search..." wire:model.live="cari">
             </div>
-            
+            {{ $dtbarang->links() }}
             <table class="table table-striped table-sortable ">
                 <thead>
                     <tr>

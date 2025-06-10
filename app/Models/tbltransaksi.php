@@ -17,5 +17,15 @@ class tbltransaksi extends Model
         'jumlah_produk',
         'total_harga'
     ];
+
+    public function customers()
+    {
+        return $this->belongsTo(tblcustomer::class, 'id_customer');
+    }
+    
+    public function barangs()
+    {
+        return $this->belongsTo(tblbarang::class, 'id_barang');
+    }
     
 }

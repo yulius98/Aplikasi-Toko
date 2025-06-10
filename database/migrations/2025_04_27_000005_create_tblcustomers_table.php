@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('telepon');
             $table->string('email')->unique();
-            $table->string('kota');
-            $table->string('kodepos');
+            $table->string('kota')->nullable();
+            $table->string('kodepos')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

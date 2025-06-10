@@ -23,5 +23,10 @@ class tblcustomer extends Model
 
     protected $dates = ['deleted_at'];
 
+    public function transaksis()
+    {
+        return $this->hasMany(tbltransaksi::class, 'id_customer');
+    }
+
     
 }

@@ -43,5 +43,9 @@ class tblbarang extends Model
     {
         return $this->hasMany(tbldisplay_barang::class, 'id_barang');
     }
+    public function transaksis(): HasMany
+    {
+        return $this->hasMany(tbltransaksi::class, 'id_barang');
+    }
 
 }

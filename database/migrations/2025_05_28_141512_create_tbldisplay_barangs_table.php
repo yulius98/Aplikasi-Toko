@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('gambar')->nullable();
             $table->decimal('harga_jual', 50, 2)->comment('Harga jual per unit');
             $table->integer('sisa_stock')->default(0)->comment('Jumlah Stock');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
