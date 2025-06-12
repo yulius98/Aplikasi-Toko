@@ -41,7 +41,7 @@ class Customer extends Component
             'email' => 'required|email',
             'alamat' => 'required',
             'telepon' => 'required',
-            
+            'kota' => 'required',
         ];
         $messages = [
             'nama_customer.required' => 'Nama Customer tidak boleh kosong',
@@ -49,6 +49,7 @@ class Customer extends Component
             'email.email' => 'Format email tidak valid',
             'alamat.required' => 'Alamat tidak boleh kosong',
             'telepon.required' => 'Telepon tidak boleh kosong',
+            'kota.required' => 'Kota tidak boleh kosong',
         ];
         $validated = $this->validate($rules, $messages);
         
@@ -90,6 +91,7 @@ class Customer extends Component
             'email' => 'required|email',
             'alamat' => 'required',
             'telepon' => 'required',
+            'kota' => 'required',
         ];
         $messages = [
             'nama_customer.required' => 'Nama Customer tidak boleh kosong',
@@ -97,6 +99,7 @@ class Customer extends Component
             'email.email' => 'Format email tidak valid',
             'alamat.required' => 'Alamat tidak boleh kosong',
             'telepon.required' => 'Telepon tidak boleh kosong',
+            'kota.required' => 'Kota tidak boleh kosong',
         ];
         $validated = $this->validate($rules, $messages);
         
